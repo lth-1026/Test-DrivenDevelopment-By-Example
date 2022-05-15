@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
+import static org.junit.Assert.assertArrayEquals;
 
 
 public class test {
@@ -62,5 +63,20 @@ public class test {
         Bank bank = new Bank();
         Money result = bank.reduce(Money.dollar(1), "USD");
         assertEquals(Money.dollar(1), result);
+    }
+
+    @Test
+    public void testArrayEquals() {
+        assertArrayEquals(new Object[] {"abc"}, new Object[] {"abc"});
+    }
+
+    @Test
+    public void objectEqualsTest() {
+        assertEquals(new Object[] {"abc"}.equals(new Object[]{"abc"}), false);
+    }
+
+    @Test
+    public void testIdentityRate() {
+        assertEquals(1, new Bank().rate("USD", "USD"));
     }
 }
